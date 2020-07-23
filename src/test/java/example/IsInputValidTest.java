@@ -13,10 +13,10 @@ public class IsInputValidTest {
         IsInputValid isInputValid = new IsInputValid();
 
         //when
-        String result = isInputValid.isCorrectLength(inputGuess);
+        boolean result = isInputValid.isCorrectLength(inputGuess);
 
         //then
-        assertEquals("Wrong Input，Input again",result);
+        assertEquals(false,result);
     }
 
     @Test
@@ -27,10 +27,10 @@ public class IsInputValidTest {
         IsInputValid isInputValid = new IsInputValid();
 
         //when
-        String result = isInputValid.isRepeatNumber(inputGuess);
+        boolean result = isInputValid.isRepeatNumber(inputGuess);
 
         //then
-        assertEquals("Wrong Input，Input again",result);
+        assertEquals(false,result);
     }
 }
 
