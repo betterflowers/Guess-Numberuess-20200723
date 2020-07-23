@@ -17,7 +17,6 @@ public class IsInputValidTest {
 
         //then
         assertEquals("Wrong Input，Input again",result);
-
     }
 }
 
