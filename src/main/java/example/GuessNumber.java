@@ -3,7 +3,7 @@ package example;
 public class GuessNumber {
     public int[] inputGuess;
 
-    public GuessNumber(int[] answer) {
+    public GuessNumber(AnswerGenerator answer) {
     }
 
     public int[] getInputGuess() {
