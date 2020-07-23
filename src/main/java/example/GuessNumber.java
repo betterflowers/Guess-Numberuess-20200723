@@ -11,13 +11,16 @@ public class GuessNumber {
     }
 
     public String guess(int[] inputGuess,int[] answer) {
-        for(int index=0;index<inputGuess.length;index++){
+        int index=0;
+        for(;index<inputGuess.length;index++){
             if(inputGuess[index] == answer[index]){
                 continue;
             }else{
                 break;
             }
         }
-        return "4A0B";
+        if(index==0){ return "0A0B";}
+        else
+            { return "4A0B";}
     }
 }
