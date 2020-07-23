@@ -11,10 +11,11 @@ public class GuessNumber {
     }
 
     public String guess(int[] inputGuess,int[] answer) {
-        int index=0;
+        int correctNumCorrectPosition=0;
         int correctNumWrongPosition=0;
-        for(;index<inputGuess.length;index++){
+        for(int index=0;index<inputGuess.length;index++){
             if(inputGuess[index] == answer[index]){
+                correctNumCorrectPosition++;
                 continue;
             }else{
                 for(int positon=0;positon<inputGuess.length;positon++){
@@ -22,13 +23,12 @@ public class GuessNumber {
                         correctNumWrongPosition++;
                     }
                 }
-                break;
             }
         }
 //        if(index==0){ return "0A0B";}
 //        if(index==4){ return "4A0B";}
 //        else{
-                int aNumber=index;
+                int aNumber=correctNumCorrectPosition;
                 int bNumber = correctNumWrongPosition;
                 String result= aNumber+"A"+bNumber+"B";
                 return result;}
