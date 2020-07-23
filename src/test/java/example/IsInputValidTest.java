@@ -18,6 +18,20 @@ public class IsInputValidTest {
         //then
         assertEquals("Wrong Input，Input again",result);
     }
+
+    @Test
+    void should_return_invalid_when_guess_given_answer_1234_and_input_guess_1223(){
+        //given
+        int[] answer ={1,2,3,4};
+        int[] inputGuess = {1,2,2,3};
+        IsInputValid isInputValid = new IsInputValid();
+
+        //when
+        String result = isInputValid.isRepeatNumber(inputGuess);
+
+        //then
+        assertEquals("Wrong Input，Input again",result);
+    }
 }
 
 
