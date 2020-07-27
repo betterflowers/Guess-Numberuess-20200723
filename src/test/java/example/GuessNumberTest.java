@@ -3,18 +3,20 @@ package example;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.lang.reflect.Array;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 public class GuessNumberTest {
+
     @Test
-    void should_return_4A0B_when_guess_given_answer_1234_and_input_guess_1234(){
+    void should_return_4A0B_when_guess_given_answer_and_input_guess_1234(){
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
         when(answerGenerator.generateRandomNumbersArray()).thenReturn(answer);
 
-//        GuessNumber guessNumber = new GuessNumber(answer);
         GuessNumber guessNumber = new GuessNumber(answerGenerator);
         int[] inputGuess = {1,2,3,4};
 
@@ -26,7 +28,7 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_0A0B_when_guess_given_answer_1234_and_input_guess_5678(){
+    void should_return_0A0B_when_guess_given_answer_and_input_guess_5678(){
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
@@ -43,7 +45,7 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_2A0B_when_guess_given_answer_1234_and_input_guess_1256(){
+    void should_return_2A0B_when_guess_given_answer_and_input_guess_1256(){
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
@@ -60,7 +62,7 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_2A2B_when_guess_given_answer_1234_and_input_guess_1243(){
+    void should_return_2A2B_when_guess_given_answer_and_input_guess_1243(){
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
@@ -77,7 +79,7 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_0A4B_when_guess_given_answer_1234_and_input_guess_2143(){
+    void should_return_0A4B_when_guess_given_answer_and_input_guess_2143(){
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
@@ -94,7 +96,7 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_0A2B_when_guess_given_answer_1234_and_input_guess_5643(){
+    void should_return_0A2B_when_guess_given_answer_and_input_guess_5643(){
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
