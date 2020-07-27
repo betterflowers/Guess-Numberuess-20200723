@@ -10,7 +10,7 @@ public class AnswerGeneratorTest {
         AnswerGenerator answerGenerator =new AnswerGenerator();
         int[] randomNumber = answerGenerator.generateAnswerNumber();
 
-        IsInputValid result = new IsInputValid();
+        VerifyInputValidity result = new VerifyInputValidity();
         boolean resultLength = result.isCorrectLength(randomNumber);
         boolean resultRepeat = result.isRepeatNumber(randomNumber);
 
