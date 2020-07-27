@@ -8,11 +8,10 @@ public class GameProcess {
     private int time;
     private final static int CHALLENGE = 6;
     int[] inputs = new int[4];
-    private GuessNumber guessNumber;
     private VerifyInputValidity verifyInputValidity;
     Scanner sc = new Scanner(System.in);
 
-    public void play(){
+    public void play(GuessNumber guessNumber){
         while(this.time < CHALLENGE){
             for(int index = 0; index <4 ; index++){
                 inputs[index] = sc.nextInt();
@@ -38,7 +37,10 @@ public class GameProcess {
 
     public static void main(String[] args){
         GameProcess a =new GameProcess();
-        a.play();
+        AnswerGenerator answerGenerator = new AnswerGenerator();
+        GuessNumber guessNumber = new GuessNumber(answerGenerator);
+
+        a.play(guessNumber);
     }
 
 }
