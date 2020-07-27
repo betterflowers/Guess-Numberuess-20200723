@@ -15,16 +15,16 @@ public class GuessNumberTest {
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateRandomNumbersArray()).thenReturn(answer);
+        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
 
         GuessNumber guessNumber = new GuessNumber(answerGenerator);
         int[] inputGuess = {1,2,3,4};
 
         //when
-        String result =guessNumber.guess(inputGuess,answer);
+        String result =guessNumber.guess(inputGuess);
 
         //then
-        assertEquals("1A0B",result);
+        assertEquals("4A0B",result);
     }
 
     @Test
@@ -32,13 +32,13 @@ public class GuessNumberTest {
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateRandomNumbersArray()).thenReturn(answer);
+        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
 
         int[] inputGuess = {5,6,7,8};
         GuessNumber guessNumber = new GuessNumber(answerGenerator);
 
         //when
-        String result =guessNumber.guess(inputGuess,answer);
+        String result =guessNumber.guess(inputGuess);
 
         //then
         assertEquals("0A0B",result);
@@ -49,13 +49,13 @@ public class GuessNumberTest {
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateRandomNumbersArray()).thenReturn(answer);
+        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
 
         int[] inputGuess = {1,2,5,6};
         GuessNumber guessNumber = new GuessNumber(answerGenerator);
 
         //when
-        String result =guessNumber.guess(inputGuess,answer);
+        String result =guessNumber.guess(inputGuess);
 
         //then
         assertEquals("2A0B",result);
@@ -66,13 +66,13 @@ public class GuessNumberTest {
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateRandomNumbersArray()).thenReturn(answer);
+        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
 
         int[] inputGuess = {1,2,4,3};
         GuessNumber guessNumber = new GuessNumber(answerGenerator);
 
         //when
-        String result =guessNumber.guess(inputGuess,answer);
+        String result =guessNumber.guess(inputGuess);
 
         //then
         assertEquals("2A2B",result);
@@ -83,13 +83,13 @@ public class GuessNumberTest {
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateRandomNumbersArray()).thenReturn(answer);
+        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
 
         int[] inputGuess = {2,1,4,3};
         GuessNumber guessNumber = new GuessNumber(answerGenerator);
 
         //when
-        String result =guessNumber.guess(inputGuess,answer);
+        String result =guessNumber.guess(inputGuess);
 
         //then
         assertEquals("0A4B",result);
@@ -100,13 +100,13 @@ public class GuessNumberTest {
         //given
         int[] answer ={1,2,3,4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateRandomNumbersArray()).thenReturn(answer);
+        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
 
         int[] inputGuess = {5,6,4,3};
         GuessNumber guessNumber = new GuessNumber(answerGenerator);
 
         //when
-        String result =guessNumber.guess(inputGuess,answer);
+        String result =guessNumber.guess(inputGuess);
 
         //then
         assertEquals("0A2B",result);

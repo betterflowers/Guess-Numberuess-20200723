@@ -1,16 +1,19 @@
 package example;
 
 public class GuessNumber {
-    public int[] inputGuess;
+
+    private int[] inputGuess;
+    private int[] answer;
 
     public GuessNumber(AnswerGenerator answer) {
+        this.answer = answer.generateAnswerNumber();
     }
 
     public int[] getInputGuess() {
         return inputGuess;
     }
 
-    public String guess(int[] inputGuess,int[] answer) {
+    public String guess(int[] inputGuess) {
         int correctNumCorrectPosition=0;
         int correctNumWrongPosition=0;
         for(int index=0;index<inputGuess.length;index++){
@@ -25,12 +28,10 @@ public class GuessNumber {
                 }
             }
         }
-//        if(index==0){ return "0A0B";}
-//        if(index==4){ return "4A0B";}
-//        else{
+
                 int aNumber=correctNumCorrectPosition;
                 int bNumber = correctNumWrongPosition;
                 String result= aNumber+"A"+bNumber+"B";
                 return result;}
-//    }
+
 }

@@ -8,7 +8,7 @@ public class AnswerGeneratorTest {
     @Test
     void should_return_validAnswer_before_playGame(){
         AnswerGenerator answerGenerator =new AnswerGenerator();
-        int[] randomNumber = answerGenerator.generateRandomNumbersArray();
+        int[] randomNumber = answerGenerator.generateAnswerNumber();
 
         IsInputValid result = new IsInputValid();
         boolean resultLength = result.isCorrectLength(randomNumber);
