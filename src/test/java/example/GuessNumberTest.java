@@ -3,113 +3,89 @@ package example;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.lang.reflect.Array;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 public class GuessNumberTest {
 
-    @Test
-    void should_return_4A0B_when_guess_given_answer_and_input_guess_1234(){
-        //given
-        int[] answer ={1,2,3,4};
+    private GuessNumber setAnswerNumber() {
+        int[] answer = {1, 2, 3, 4};
         AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
         when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
-
-        GuessNumber guessNumber = new GuessNumber(answerGenerator);
-        int[] inputGuess = {1,2,3,4};
-
-        //when
-        String result =guessNumber.guess(inputGuess);
-
-        //then
-        assertEquals("4A0B",result);
+        return new GuessNumber(answerGenerator);
     }
 
     @Test
-    void should_return_0A0B_when_guess_given_answer_and_input_guess_5678(){
+    void should_return_4A0B_when_guess_given_answer_and_input_guess_1234() {
         //given
-        int[] answer ={1,2,3,4};
-        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
-
-        int[] inputGuess = {5,6,7,8};
-        GuessNumber guessNumber = new GuessNumber(answerGenerator);
+        int[] inputGuess = {1, 2, 3, 4};
 
         //when
-        String result =guessNumber.guess(inputGuess);
+        String result = setAnswerNumber().guess(inputGuess);
 
         //then
-        assertEquals("0A0B",result);
+        assertEquals("4A0B", result);
+    }
+
+
+    @Test
+    void should_return_0A0B_when_guess_given_answer_and_input_guess_5678() {
+        //given
+        int[] inputGuess = {5, 6, 7, 8};
+
+        //when
+        String result = setAnswerNumber().guess(inputGuess);
+
+        //then
+        assertEquals("0A0B", result);
     }
 
     @Test
-    void should_return_2A0B_when_guess_given_answer_and_input_guess_1256(){
+    void should_return_2A0B_when_guess_given_answer_and_input_guess_1256() {
         //given
-        int[] answer ={1,2,3,4};
-        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
-
-        int[] inputGuess = {1,2,5,6};
-        GuessNumber guessNumber = new GuessNumber(answerGenerator);
+        int[] inputGuess = {1, 2, 5, 6};
 
         //when
-        String result =guessNumber.guess(inputGuess);
+        String result = setAnswerNumber().guess(inputGuess);
 
         //then
-        assertEquals("2A0B",result);
+        assertEquals("2A0B", result);
     }
 
     @Test
-    void should_return_2A2B_when_guess_given_answer_and_input_guess_1243(){
+    void should_return_2A2B_when_guess_given_answer_and_input_guess_1243() {
         //given
-        int[] answer ={1,2,3,4};
-        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
-
-        int[] inputGuess = {1,2,4,3};
-        GuessNumber guessNumber = new GuessNumber(answerGenerator);
+        int[] inputGuess = {1, 2, 4, 3};
 
         //when
-        String result =guessNumber.guess(inputGuess);
+        String result = setAnswerNumber().guess(inputGuess);
 
         //then
-        assertEquals("2A2B",result);
+        assertEquals("2A2B", result);
     }
 
     @Test
-    void should_return_0A4B_when_guess_given_answer_and_input_guess_2143(){
+    void should_return_0A4B_when_guess_given_answer_and_input_guess_2143() {
         //given
-        int[] answer ={1,2,3,4};
-        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
-
-        int[] inputGuess = {2,1,4,3};
-        GuessNumber guessNumber = new GuessNumber(answerGenerator);
+        int[] inputGuess = {2, 1, 4, 3};
 
         //when
-        String result =guessNumber.guess(inputGuess);
+        String result = setAnswerNumber().guess(inputGuess);
 
         //then
-        assertEquals("0A4B",result);
+        assertEquals("0A4B", result);
     }
 
     @Test
-    void should_return_0A2B_when_guess_given_answer_and_input_guess_5643(){
+    void should_return_0A2B_when_guess_given_answer_and_input_guess_5643() {
         //given
-        int[] answer ={1,2,3,4};
-        AnswerGenerator answerGenerator = Mockito.mock(AnswerGenerator.class);
-        when(answerGenerator.generateAnswerNumber()).thenReturn(answer);
-
-        int[] inputGuess = {5,6,4,3};
-        GuessNumber guessNumber = new GuessNumber(answerGenerator);
+        int[] inputGuess = {5, 6, 4, 3};
 
         //when
-        String result =guessNumber.guess(inputGuess);
+        String result = setAnswerNumber().guess(inputGuess);
 
         //then
-        assertEquals("0A2B",result);
+        assertEquals("0A2B", result);
     }
 
 }
