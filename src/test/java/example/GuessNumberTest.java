@@ -88,4 +88,16 @@ public class GuessNumberTest {
         assertEquals("0A2B", result);
     }
 
+    @Test
+    void should_return_1A3B_when_guess_given_answer_and_input_guess_1342() {
+        //given
+        int[] inputGuess = {1, 3, 4, 2};
+
+        //when
+        String result = setAnswerNumber().guess(inputGuess);
+
+        //then
+        assertEquals("1A3B", result);
+    }
+
 }

@@ -20,4 +20,5 @@ public class IsInputValid {
         }
         return true;
     }
+
 }

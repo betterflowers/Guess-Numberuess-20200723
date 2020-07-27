@@ -2,36 +2,42 @@ package example;
 
 public class GuessNumber {
 
-    private int[] inputGuess;
     private int[] answer;
 
     public GuessNumber(AnswerGenerator answer) {
         this.answer = answer.generateAnswerNumber();
     }
 
-    public int[] getInputGuess() {
-        return inputGuess;
-    }
 
     public String guess(int[] inputGuess) {
-        int correctNumCorrectPosition=0;
-        int correctNumWrongPosition=0;
-        for(int index=0;index<inputGuess.length;index++){
-            if(inputGuess[index] == answer[index]){
+        int correctNumCorrectPosition = 0;
+        int correctNumWrongPosition = 0;
+
+        for (int index = 0; index < inputGuess.length; index++) {
+            if (inputGuess[index] == answer[index]) {
                 correctNumCorrectPosition++;
-                continue;
-            }else{
-                for(int positon=0;positon<inputGuess.length;positon++){
-                    if(inputGuess[index] == answer[positon]){
-                        correctNumWrongPosition++;
-                    }
-                }
+            } else {
+                correctNumWrongPosition = getCorrectNumWrongPosition(inputGuess, correctNumWrongPosition, index);
             }
         }
 
-                int aNumber=correctNumCorrectPosition;
-                int bNumber = correctNumWrongPosition;
-                String result= aNumber+"A"+bNumber+"B";
-                return result;}
+        return formatGuessResult(correctNumCorrectPosition, correctNumWrongPosition);
+
+    }
+
+    private int getCorrectNumWrongPosition(int[] inputGuess, int correctNumWrongPosition, int index) {
+        for (int positon = 0; positon < inputGuess.length; positon++) {
+            if (inputGuess[index] == answer[positon]) {
+                correctNumWrongPosition++;
+            }
+        }
+        return correctNumWrongPosition;
+    }
+
+    public String formatGuessResult(int correctNumCorrectPosition, int correctNumWrongPosition) {
+        String result = correctNumCorrectPosition + "A" + correctNumWrongPosition + "B";
+        return result;
+    }
+
 
 }
