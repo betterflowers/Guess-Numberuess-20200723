@@ -8,8 +8,14 @@ public class GameProcess {
     private int time;
     private final static int CHALLENGE = 6;
     int[] inputs = new int[4];
-    private VerifyInputValidity verifyInputValidity;
+    private InputValidity verify;
     Scanner sc = new Scanner(System.in);
+
+    public GameProcess(InputValidity verify) {
+        this.verify = verify;
+    }
+
+
 
     public void play(GuessNumber guessNumber){
         while(this.time < CHALLENGE){
@@ -17,7 +23,7 @@ public class GameProcess {
                 inputs[index] = sc.nextInt();
             }
 
-            if(verifyInputValidity.getVerifyResult(inputs)){
+            if(verify.getVerifyResult(inputs)){
                 String result = guessNumber.guess(inputs);
                 if(isWin(result)){
                     System.out.println("You win!");
@@ -33,14 +39,6 @@ public class GameProcess {
 
     private boolean isWin(String answer) {
         return this.time <= CHALLENGE && WIN.equals(answer);
-    }
-
-    public static void main(String[] args){
-        GameProcess a =new GameProcess();
-        AnswerGenerator answerGenerator = new AnswerGenerator();
-        GuessNumber guessNumber = new GuessNumber(answerGenerator);
-
-        a.play(guessNumber);
     }
 
 }

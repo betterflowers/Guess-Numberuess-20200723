@@ -12,7 +12,7 @@ public class AnswerGenerator {
         for(int i=0;i<10;i++){
             randomNumberList.add(i);
         }
-        boolean[] bool = new boolean[52];
+        boolean[] bool = new boolean[20];
 
         for(int index=0;index<4;index++){
             do{

@@ -2,7 +2,11 @@ package example;
 
 import java.util.HashMap;
 
-public class VerifyInputValidity {
+public class InputValidity {
+
+    private final int inputsLength = 4;
+
+
 
     public boolean getVerifyResult(int[] inputGuess) {
         return isCorrectLength(inputGuess) && isRepeatNumber(inputGuess) && isCorrectRange(inputGuess);
@@ -10,7 +14,7 @@ public class VerifyInputValidity {
     }
 
     public boolean isCorrectLength(int[] inputGuess) {
-        if (inputGuess.length != 4) {
+        if (inputGuess.length != inputsLength) {
             return false;
         }
         return true;

@@ -10,12 +10,28 @@ public class AnswerGeneratorTest {
         AnswerGenerator answerGenerator =new AnswerGenerator();
         int[] randomNumber = answerGenerator.generateAnswerNumber();
 
-        VerifyInputValidity result = new VerifyInputValidity();
-        boolean resultLength = result.isCorrectLength(randomNumber);
-        boolean resultRepeat = result.isRepeatNumber(randomNumber);
+        boolean isTestPass = true;
+
+        if (randomNumber.length != 4) {
+            isTestPass = false;
+        }
+
+        for (int index = 0; index < randomNumber.length; index++) {
+            for (int j = index + 1; j < randomNumber.length; j++) {
+                if (randomNumber[index] == randomNumber[j]) {
+                    isTestPass = false;
+                }
+            }
+        }
+
+        for (int index = 0; index < randomNumber.length; index++) {
+            if (randomNumber[index] < 0 || randomNumber[index] > 9)
+                isTestPass = false;
+        }
+
 
         //when
-        assertEquals(true,resultLength&&resultRepeat);
+        assertEquals(true,isTestPass);
 
     }
 
